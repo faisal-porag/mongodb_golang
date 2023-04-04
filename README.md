@@ -1,8 +1,8 @@
-# mongodb_golang
+# Mongodb with golang
 mongo db connection with golang 
 
 
-###### Mongo db connection 
+##### Mongo DB Connection 
 ```shell
 package configs
 
