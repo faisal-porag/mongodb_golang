@@ -202,3 +202,36 @@ func GetAllUsers(c *fiber.Ctx) error {
 }
 
 ```
+##### Routers 
+```shell
+package routes
+
+import (
+    "fiber-mongo-api/controllers"
+    "github.com/gofiber/fiber/v2"
+)
+
+func UserRoute(app *fiber.App) {
+    app.Post("/user", controllers.CreateUser)
+    app.Get("/user/:userId", controllers.GetAUser)
+    app.Put("/user/:userId", controllers.EditAUser)
+    app.Delete("/user/:userId", controllers.DeleteAUser)
+    app.Get("/users", controllers.GetAllUsers)
+}
+```
+
+##### Models
+```shell
+package models
+
+import "go.mongodb.org/mongo-driver/bson/primitive"
+
+type User struct {
+    Id       primitive.ObjectID `json:"id,omitempty"`
+    Name     string             `json:"name,omitempty" validate:"required"`
+    Location string             `json:"location,omitempty" validate:"required"`
+    Title    string             `json:"title,omitempty" validate:"required"`
+}
+```
+
+
